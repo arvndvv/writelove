@@ -1,9 +1,12 @@
+.blogs {
+  @apply flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:gap-10;
+}
 .blog-card {
-  @apply flex gap-5 h-full flex-col md:flex-row max-w-full md:max-w-[33%];
+  @apply flex gap-5 h-[30vh] flex-col md:flex-row max-w-full md:max-w-[33%] max-h-[33vh];
   &__image {
     @apply flex sm:w-1/2;
     & img {
-      @apply w-full object-cover;
+      @apply object-cover;
     }
   }
   &__content {
@@ -13,6 +16,6 @@
     @apply text-2xl font-bold;
   }
   &__description {
-    @apply text-lg my-5;
+    @apply text-lg my-5 text-ellipsis  truncate break-words;
   }
 }
