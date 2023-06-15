@@ -1,10 +1,13 @@
 .blog-card {
-  @apply flex gap-5 h-full flex-col-reverse md:flex-row;
+  @apply flex gap-5 h-full flex-col md:flex-row max-w-full md:max-w-[33%];
   &__image {
-    @apply flex w-1/2;
+    @apply flex sm:w-1/2;
+    & img {
+      @apply w-full object-cover;
+    }
   }
   &__content {
-    @apply flex flex-col justify-center w-1/2;
+    @apply flex flex-col justify-center sm:w-1/2;
   }
   &__title {
     @apply text-2xl font-bold;
