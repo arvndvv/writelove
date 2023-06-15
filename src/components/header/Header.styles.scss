@@ -1,0 +1,48 @@
+.head {
+  &__container {
+    @apply flex justify-between items-center;
+    .logo {
+      @apply flex items-center font-orbit;
+      @apply text-2xl font-bold;
+    }
+  }
+  &__links {
+    @apply flex  bg-gray-50 items-center flex-col sm:flex-row;
+
+    &__signed-in {
+      @apply absolute  -left-[100%] sm:left-0 shadow-2xl sm:shadow-none sm:border-0 sm:bg-transparent border-white border-2 sm:relative h-full top-0 pt-5 font-bold transition-all duration-300 px-5 sm:p-0 pt-10 z-10;
+
+      &--open {
+        @apply left-[0%];
+      }
+    }
+  }
+  &__link {
+    @apply sm:border-r-2 w-full text-center border-black p-2 transition-all duration-300 hover:bg-black hover:text-white border-collapse;
+    &:last-child {
+      @apply border-r-0;
+    }
+  }
+}
+.profile {
+  @apply flex relative items-center gap-2 flex-col;
+  &__card {
+    @apply flex items-center gap-1 cursor-pointer p-2;
+    @apply hover:bg-black hover:text-white transition-colors duration-200;
+  }
+  &__menu {
+    @apply absolute ease-in-out top-[60%] opacity-0 pointer-events-none shadow-lg w-full flex justify-center transition-all  duration-300;
+    span {
+      @apply w-full flex  justify-center hover:bg-black hover:text-white transition-colors duration-200 p-2 cursor-pointer;
+    }
+    &--open {
+      @apply top-[105%] opacity-100 pointer-events-auto;
+    }
+  }
+}
+.flip-horizontal {
+  transform: rotate(180deg);
+}
+.close {
+  @apply sm:hidden cursor-pointer right-2 top-2 absolute hover:bg-black hover:text-white transition-colors duration-200;
+}

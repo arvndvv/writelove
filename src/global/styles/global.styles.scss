@@ -1,0 +1,36 @@
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+  &-generic {
+    @apply bg-base hover:bg-baseLight text-white;
+  }
+  &-cta {
+    @apply bg-black hover:bg-gray-700 text-white;
+  }
+  &-transparent {
+    @apply bg-transparent hover:bg-gray-700 text-gray-700 hover:text-white font-semibold border-gray-700 border-2 hover:border-transparent;
+  }
+  &-disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+}
+.card {
+  @apply flex gap-5 h-full flex-col-reverse md:flex-row;
+  &__content {
+    @apply flex flex-col justify-center;
+  }
+  &__title {
+    @apply text-2xl font-bold;
+  }
+  &__subtitle {
+    @apply text-gray-500;
+  }
+  &__description {
+    @apply text-sm mt-5;
+  }
+  &__actions {
+    @apply flex mt-5 justify-between;
+  }
+  &__img {
+    @apply flex;
+  }
+}

@@ -1,0 +1,14 @@
+.input-area {
+  @apply w-full flex flex-wrap gap-1 border-b-2 border-blue-300 pb-1 mb-4;
+
+  .keyword {
+    @apply px-1 rounded-md bg-blue-300 flex items-center;
+
+    .remove {
+      @apply font-bold text-blue-700 text-lg cursor-pointer ml-1;
+    }
+  }
+  .input {
+    @apply outline-none;
+  }
+}

@@ -1,0 +1,15 @@
+.overlay {
+  @apply fixed  w-screen h-screen overflow-auto top-0 left-0 bg-white z-50 flex  transition-all duration-300 opacity-0 pointer-events-none scale-90;
+  &--open {
+    @apply opacity-100 pointer-events-auto scale-100;
+  }
+  &__content {
+    @apply flex flex-col gap-5 w-full p-5 mb-5;
+    &--header {
+      @apply flex justify-between items-center w-full;
+    }
+    &--body {
+      @apply flex flex-col gap-5 h-full;
+    }
+  }
+}

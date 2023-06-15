@@ -1,0 +1,45 @@
+table {
+  border: 1px solid lightgray;
+}
+
+tbody {
+  border-bottom: 1px solid lightgray;
+
+  td {
+    padding: 1rem !important;
+    border-bottom: 1px solid lightgray;
+  }
+}
+
+th {
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding: 0.5rem 1rem !important;
+  font-weight: 400;
+}
+
+thead tr {
+  background-color: #f8fafb !important;
+}
+
+.topic {
+  @apply flex flex-col gap-2;
+  &__name {
+    @apply font-medium;
+  }
+  &__key-words {
+    @apply flex flex-wrap gap-2;
+  }
+  &__key-word {
+    @apply px-1 rounded-lg;
+    &:nth-of-type(3n + 1) {
+      @apply bg-yellow-100 text-yellow-500 border-2 border-yellow-500;
+    }
+    &:nth-of-type(3n + 2) {
+      @apply bg-green-100 text-green-500 border-2 border-green-500;
+    }
+    &:nth-of-type(3n + 3) {
+      @apply bg-red-100 text-red-500 border-2 border-red-500;
+    }
+  }
+}
