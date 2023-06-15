@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ECategories, IPerson, ITopic } from "../../models/interfaces";
+import { ITopic } from "../../models/interfaces";
 import "./Table.styles.scss";
 import {
   Table,
@@ -15,7 +15,7 @@ import { usePagination } from "@table-library/react-table-library/pagination";
 import { BlogButton } from "../button/blogButton/BlogButton.component";
 import { deleteTopic } from "../../services/topics.service";
 import ConfirmModal from "../dialog/confirm-dialog/ConfirmDialog.component";
-import Overlay from "../dialog/overlay/Overlay.component";
+import Overlay from "../dialog/editor-overlay/Overlay.component";
 
 export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
   tableData,
@@ -42,7 +42,6 @@ export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
   };
 
   const handleWrite = (topic: ITopic) => {
-    console.log("iamcalled");
     setSelectedTopic(topic);
     setOpenEditor(true);
   };
@@ -52,7 +51,7 @@ export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
       <Overlay
         openEditor={openEditor}
         setOpenEditor={setOpenEditor}
-        title={selectedTopic?.name || ""}
+        topic={selectedTopic}
       />
       <ConfirmModal
         isOpen={isDialogOpen}

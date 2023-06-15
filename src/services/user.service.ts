@@ -5,6 +5,7 @@ const initialState = {
         name: "John Doe",
         email: "john@writelove.com",
     },
+    blogs: [],
     authenticated: false,
 };
 export const getUser = () => {
@@ -14,3 +15,4 @@ export const getUser = () => {
 export const setUser = (user: IGlobalState) => {
     localStorage.setItem("user", JSON.stringify(user));
 }
+

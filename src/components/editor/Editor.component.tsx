@@ -54,10 +54,10 @@ function imageHandler() {
   //     this.insertEmbed(range.index, "image", res.url);
   //   };
 }
-export default function Editor(this: any) {
+export default function Editor({ state, setState }: any) {
   let quill: any;
-  const [state, setState] = useState({ textQuillStandart: "" });
   const handleChangeQuillStandart = (textQuillStandart: any) => {
+    console.log(textQuillStandart);
     setState({ textQuillStandart });
   };
 

@@ -1,32 +1,15 @@
-.test {
-  margin: 1rem 4rem;
-}
-
-.test .ql-container {
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  background: #fefcfc;
-}
-
-/* Snow Theme */
-.test .ql-snow.ql-toolbar {
-  display: block;
-  background: #eaecec;
-  border-top-left-radius: 0.5em;
-  border-top-right-radius: 0.5em;
-}
-
-/* Bubble Theme */
-.test .ql-bubble .ql-editor {
-  border: 1px solid #ccc;
-  border-radius: 0.5em;
-}
-
-.test .ql-editor {
-  min-height: 18em;
-}
-
-.themeSwitcher {
-  margin-top: 0.5em;
-  font-size: small;
+.blog-card {
+  @apply flex gap-5 h-full flex-col-reverse md:flex-row;
+  &__image {
+    @apply flex w-1/2;
+  }
+  &__content {
+    @apply flex flex-col justify-center w-1/2;
+  }
+  &__title {
+    @apply text-2xl font-bold;
+  }
+  &__description {
+    @apply text-lg my-5;
+  }
 }

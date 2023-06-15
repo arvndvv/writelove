@@ -6,6 +6,7 @@ export interface IGlobalState {
         email: string;
     };
     authenticated: boolean;
+    blogs: IBlog[];
 }
 export interface IGlobalStateContext {
     globalState: IGlobalState;
@@ -16,14 +17,7 @@ export interface IHeaderLinks {
     path: string;
 }
 
-export interface IPerson {
-    firstName: string
-    lastName: string
-    age: number
-    visits: number
-    status: string
-    progress: number
-}
+
 export interface ITopicBasic {
     name: string;
     keywords: string[];
@@ -45,4 +39,11 @@ export enum ECategories {
     ICP = "icp",
     MISSION = "mission",
     PRODUCT = "product",
+}
+
+export interface IBlog {
+    name: string,
+    description: string,
+    keywords: string[],
+    id: string
 }

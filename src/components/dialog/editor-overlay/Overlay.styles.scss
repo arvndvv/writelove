@@ -9,7 +9,7 @@
       @apply flex justify-between items-center w-full;
     }
     &--body {
-      @apply flex flex-col gap-5 h-full;
+      @apply flex flex-col gap-5 h-[70vh] overflow-auto;
     }
   }
 }

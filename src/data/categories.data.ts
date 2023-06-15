@@ -1,9 +1,4 @@
-import { ECategories, ICategories, IPerson, ITopic } from "../models/interfaces";
-
-
-
-
-
+import { ECategories, ICategories, ITopic } from "../models/interfaces";
 
 
 export const icpList: ITopic[] = [
