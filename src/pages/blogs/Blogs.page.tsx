@@ -19,7 +19,7 @@ export const Blogs = () => {
           console.log(src);
 
           return (
-            <div key={index} className="blog-card">
+            <div key={index} className="blog-card md:max-w-[33%] max-h-[33vh]">
               <div className="blog-card__image">
                 <img src={src} alt="" />
               </div>

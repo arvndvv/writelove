@@ -2,7 +2,7 @@
   @apply flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:gap-10;
 }
 .blog-card {
-  @apply flex gap-5 h-[30vh] flex-col md:flex-row max-w-full md:max-w-[33%] max-h-[33vh];
+  @apply flex gap-5 h-[30vh] flex-col md:flex-row w-full;
   &__image {
     @apply flex sm:w-1/2;
     & img {
