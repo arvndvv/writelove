@@ -23,38 +23,38 @@ const quillFormats = [
   "image",
   "video",
 ];
-function imageHandler() {
-  //   const input = document.createElement("input");
-  //   input.setAttribute("type", "file");
-  //   input.setAttribute("accept", "image/*");
-  //   input.click();
-  //   input.onchange = async () => {
-  //     if (!input?.files) return;
-  //     const file = input.files[0];
-  //     let formData = new FormData();
-  //     formData.append("uri", file);
-  //     const range = this.getSelection(true);
-  //     this.insertEmbed(
-  //       range.index,
-  //       "image",
-  //       `${window.location.origin}/images/loaders/placeholder.gif`
-  //     );
-  //     this.setSelection(range.index + 1);
-  //     //fetch api call for upload the image
-  //     const data = await fetch("" + "/api/upload", {
-  //       method: "POST",
-  //       headers: {
-  //         Authorization: `Bearer ${localStorage.getItem("feathers-jwt")}`,
-  //       },
-  //       body: formData,
-  //     });
-  //     const res = await data.json();
-  //     this.deleteText(range.index, 1);
-  //     this.insertEmbed(range.index, "image", res.url);
-  //   };
-}
+// function imageHandler() {
+//   //   const input = document.createElement("input");
+//   //   input.setAttribute("type", "file");
+//   //   input.setAttribute("accept", "image/*");
+//   //   input.click();
+//   //   input.onchange = async () => {
+//   //     if (!input?.files) return;
+//   //     const file = input.files[0];
+//   //     let formData = new FormData();
+//   //     formData.append("uri", file);
+//   //     const range = this.getSelection(true);
+//   //     this.insertEmbed(
+//   //       range.index,
+//   //       "image",
+//   //       `${window.location.origin}/images/loaders/placeholder.gif`
+//   //     );
+//   //     this.setSelection(range.index + 1);
+//   //     //fetch api call for upload the image
+//   //     const data = await fetch("" + "/api/upload", {
+//   //       method: "POST",
+//   //       headers: {
+//   //         Authorization: `Bearer ${localStorage.getItem("feathers-jwt")}`,
+//   //       },
+//   //       body: formData,
+//   //     });
+//   //     const res = await data.json();
+//   //     this.deleteText(range.index, 1);
+//   //     this.insertEmbed(range.index, "image", res.url);
+//   //   };
+// }
 export default function Editor({ state, setState }: any) {
-  let quill: any;
+  // let quill: any;
   const handleChangeQuillStandart = (textQuillStandart: any) => {
     console.log(textQuillStandart);
     setState({ textQuillStandart });
@@ -62,9 +62,9 @@ export default function Editor({ state, setState }: any) {
 
   return (
     <ReactQuill
-      ref={(el) => {
-        quill = el;
-      }}
+      // ref={(el) => {
+      //   quill = el;
+      // }}
       theme="snow"
       className="mb-4"
       value={state.textQuillStandart}
