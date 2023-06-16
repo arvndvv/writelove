@@ -121,7 +121,7 @@ export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
           </>
         )}
       </Table>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-1">
         <span className="px-2">
           Total Pages: {pagination.state.getTotalPages(data.nodes)}
         </span>
@@ -132,13 +132,13 @@ export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
             .getPages(data.nodes)
             .map((_: any, index: number) => (
               <button
-                className="py-1 px-2"
+                className={` px-2 ${
+                  pagination.state.page === index
+                    ? "bg-black text-white"
+                    : "bg-white text-black"
+                }`}
                 key={index}
                 type="button"
-                style={{
-                  fontWeight:
-                    pagination.state.page === index ? "bold" : "normal",
-                }}
                 onClick={() => pagination.fns.onSetPage(index)}
               >
                 {index + 1}
