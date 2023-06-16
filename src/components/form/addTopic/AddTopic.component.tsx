@@ -22,6 +22,8 @@ export function AddTopic({
       activeTab === ECategories.ALL ? ECategories.CUSTOM : activeTab
     );
     reRender();
+    setTopic("");
+    setKeywords([]);
     setOpen(false);
   };
   return (
