@@ -17,7 +17,10 @@ export function AddTopic({
   const [keywords, setKeywords] = useState<string[]>([]);
   const [topic, setTopic] = useState<string>("");
   const handleAddTopic = () => {
-    addTopic({ name: topic, keywords }, activeTab);
+    addTopic(
+      { name: topic, keywords },
+      activeTab === ECategories.ALL ? ECategories.CUSTOM : activeTab
+    );
     reRender();
     setOpen(false);
   };
