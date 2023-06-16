@@ -27,12 +27,7 @@ export interface ITopic extends ITopicBasic {
     id: string;
 }
 
-export interface ICategories {
-    [ECategories.CUSTOM]: ITopic[],
-    [ECategories.ICP]: ITopic[],
-    [ECategories.MISSION]: ITopic[],
-    [ECategories.PRODUCT]: ITopic[],
-}
+
 export enum ECategories {
     ALL = "all",
     CUSTOM = "custom",
@@ -46,4 +41,10 @@ export interface IBlog {
     description: string,
     keywords: string[],
     id: string
+}
+export interface ICategories {
+    [ECategories.CUSTOM]: ITopic[],
+    [ECategories.ICP]: ITopic[],
+    [ECategories.MISSION]: ITopic[],
+    [ECategories.PRODUCT]: ITopic[],
 }

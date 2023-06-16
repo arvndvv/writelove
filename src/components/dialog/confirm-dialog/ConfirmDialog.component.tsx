@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
 export default function ConfirmModal({
   isOpen,
@@ -10,10 +10,6 @@ export default function ConfirmModal({
 }: any) {
   function closeModal() {
     setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
   }
 
   return (

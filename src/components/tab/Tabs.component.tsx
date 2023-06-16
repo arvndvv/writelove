@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Tabs.styles.scss";
 import { categories } from "../../data/tabs.data";
 export const Tabs = (props: any) => {

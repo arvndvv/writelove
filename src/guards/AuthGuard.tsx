@@ -16,7 +16,7 @@ export const AuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
       navigate(WriteRoutes.SIGN_IN);
     }
     console.log("AuthGuard");
-  }, [globalState]);
+  }, [globalState, navigate]);
 
   return <>{component}</>;
 };
@@ -30,7 +30,7 @@ export const UnAuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
       navigate(WriteRoutes.HOME);
     }
     console.log("UnAuthGuard");
-  }, [globalState]);
+  }, [globalState, navigate]);
 
   return <>{component}</>;
 };

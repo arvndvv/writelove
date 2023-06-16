@@ -1,7 +1,6 @@
-import ReactQuill, { Quill } from "react-quill";
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
-import { createRef, useState } from "react";
 
 const quillContainerData = [
   ["bold", "italic", "underline", "strike", "blockquote"],

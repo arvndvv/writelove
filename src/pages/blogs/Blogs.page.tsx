@@ -12,6 +12,7 @@ export const Blogs = () => {
         {getAllBlogs().map((blog: IBlog, index: number) => {
           console.log(blog);
           const match = blog.description.match(
+            // eslint-disable-next-line no-useless-escape
             /\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/
           );
           const src = match ? match[1] : "";
