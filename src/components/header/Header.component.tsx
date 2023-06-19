@@ -14,12 +14,14 @@ export const Header = () => {
   return (
     <>
       <div className="head__container">
-        <span
-          className="material-icons md-48 sm:hidden cursor-pointer"
-          onClick={handleHamClick}
-        >
-          menu
-        </span>
+        {state.globalState.authenticated && (
+          <span
+            className="material-icons md-48 sm:hidden cursor-pointer"
+            onClick={handleHamClick}
+          >
+            menu
+          </span>
+        )}
 
         <Link to="/">
           <strong className="logo">writelove.</strong>

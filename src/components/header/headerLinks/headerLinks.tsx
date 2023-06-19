@@ -17,9 +17,11 @@ export const HeaderLinks: (props: {
           globalState.authenticated && "head__links__signed-in"
         } ${menuOpen && "head__links__signed-in--open"}`}
       >
-        <span className="material-icons md-48 close" onClick={setMenuOpen}>
-          close
-        </span>
+        {globalState.authenticated && (
+          <span className="material-icons close" onClick={setMenuOpen}>
+            close
+          </span>
+        )}
         {links.map((link, index) => {
           return (
             <Link to={link.path} className="head__link" key={index}>
