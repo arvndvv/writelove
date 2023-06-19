@@ -3,7 +3,7 @@ import "./Blogs.styles.scss";
 import { getAllBlogs } from "../../services/blog.service";
 import { IBlog } from "../../models/interfaces";
 import Parser from "html-react-parser";
-
+import imgPlaceholder from "../../assets/images/placeholder.jpg";
 export const Blogs = () => {
   return (
     <div className="Home">
@@ -24,11 +24,11 @@ export const Blogs = () => {
               className="blog-card md:max-w-[45%] md:max-h-[45vh]"
             >
               <div className="blog-card__image">
-                <img src={src} alt="" />
+                <img src={src || imgPlaceholder} alt="" />
               </div>
               <div className="blog-card__content">
                 <h2 className="blog-card__title">{blog.name}</h2>
-                <p className="blog-card__description">
+                <span className="blog-card__description">
                   {Parser(blog.description, {
                     replace: (domNode: any) => {
                       if (domNode.name === "img") {
@@ -42,7 +42,7 @@ export const Blogs = () => {
                       }
                     },
                   })}
-                </p>
+                </span>
                 <div className="blog-card__actions">
                   <button className="btn btn-cta">Read more</button>
                 </div>
