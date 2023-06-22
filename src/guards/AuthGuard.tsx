@@ -15,7 +15,6 @@ export const AuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
       toaster.error("You are not authenticated.");
       navigate(WriteRoutes.SIGN_IN);
     }
-    console.log("AuthGuard");
   }, [globalState, navigate]);
 
   return <>{component}</>;
@@ -29,7 +28,6 @@ export const UnAuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
       toaster.success("You are authenticated.");
       navigate(WriteRoutes.HOME);
     }
-    console.log("UnAuthGuard");
   }, [globalState, navigate]);
 
   return <>{component}</>;

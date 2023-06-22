@@ -56,7 +56,6 @@ const quillFormats = [
 export default function Editor({ state, setState }: any) {
   // let quill: any;
   const handleChangeQuillStandart = (textQuillStandart: any) => {
-    console.log(textQuillStandart);
     setState({ textQuillStandart });
   };
 

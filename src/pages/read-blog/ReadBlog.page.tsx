@@ -7,7 +7,6 @@ import "./ReadBlog.styles.scss";
 export default function ReadBlog() {
   let { id } = useParams();
   const blog = id ? getBlogById(id) : {};
-  id && console.log();
 
   return (
     <div className="blog-preview">

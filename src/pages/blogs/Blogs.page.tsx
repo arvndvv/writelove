@@ -17,13 +17,11 @@ export const Blogs = () => {
       <h1 className="text-2xl font-medium my-5">Blogs</h1>
       <div className="blogs">
         {getAllBlogs().map((blog: IBlog, index: number) => {
-          console.log(blog);
           const match = blog.description.match(
             // eslint-disable-next-line no-useless-escape
             /\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/
           );
           const src = match ? match[1] : "";
-          console.log(src);
 
           return (
             <div
