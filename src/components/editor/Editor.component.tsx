@@ -1,12 +1,13 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "react-quill/dist/quill.bubble.css";
+import "./Editor.styles.scss";
 
 const quillContainerData = [
   ["bold", "italic", "underline", "strike", "blockquote"],
   [{ list: "ordered" }, { list: "bullet" }, { indent: "-4" }, { indent: "+4" }],
-  ["link", "image", "video"],
-  ["clean"],
+  ["link", "image"], //"video"
+  // ["clean"],
 ];
 
 const quillFormats = [
@@ -21,7 +22,7 @@ const quillFormats = [
   "indent",
   "link",
   "image",
-  "video",
+  // "video",
 ];
 // function imageHandler() {
 //   //   const input = document.createElement("input");
