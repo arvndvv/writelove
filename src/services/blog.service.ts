@@ -19,3 +19,8 @@ export const createBlog = (topic: ITopic, description: string) => {
 export const getAllBlogs = () => {
     return storeState.blogs || [];
 }
+export const getBlogById = (id: string) => {
+    const blogs = getAllBlogs();
+    return blogs?.find((blog: IBlog) => blog.id === id) || {};
+}
+

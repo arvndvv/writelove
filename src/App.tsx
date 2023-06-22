@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { Home } from "./pages/home/Home.page";
 import { Recommendations } from "./pages/recommendations/Recommendations.page";
 import { Header } from "./components/header/Header.component";
@@ -9,6 +9,7 @@ import { AuthGuard, UnAuthGuard } from "./guards/AuthGuard";
 import { Toaster } from "react-hot-toast";
 import { SignIn } from "./pages/signIn/SignIn.page";
 import { WriteRoutes } from "./constants/routes";
+import ReadBlog from "./pages/read-blog/ReadBlog.page";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
               path={WriteRoutes.RECOMMENDATIONS}
               element={<AuthGuard component={<Recommendations />} />}
             ></Route>
+            <Route path={WriteRoutes.READ}>
+              <Route index element={<Navigate to="../" />} />
+              <Route path=":id" element={<ReadBlog />} />
+            </Route>
           </Route>
         </Routes>
       </div>

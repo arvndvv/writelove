@@ -4,7 +4,14 @@ import { getAllBlogs } from "../../services/blog.service";
 import { IBlog } from "../../models/interfaces";
 import Parser from "html-react-parser";
 import imgPlaceholder from "../../assets/images/placeholder.jpg";
+import { useNavigate } from "react-router-dom";
+import { WriteRoutes } from "../../constants/routes";
 export const Blogs = () => {
+  const navigate = useNavigate();
+
+  const handleReadMore = (id: string) => {
+    navigate(WriteRoutes.READ + "/" + id);
+  };
   return (
     <div className="Home">
       <h1 className="text-2xl font-medium my-5">Blogs</h1>
@@ -44,7 +51,12 @@ export const Blogs = () => {
                   })}
                 </span>
                 <div className="blog-card__actions">
-                  <button className="btn btn-cta">Read more</button>
+                  <button
+                    className="btn btn-cta"
+                    onClick={() => handleReadMore(blog.id)}
+                  >
+                    Read more
+                  </button>
                 </div>
               </div>
             </div>
