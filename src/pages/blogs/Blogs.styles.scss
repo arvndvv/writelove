@@ -1,5 +1,8 @@
 .blogs {
   @apply flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:gap-10 py-10;
+  * {
+    @apply whitespace-break-spaces;
+  }
 }
 .blog-card {
   @apply flex gap-5 flex-col md:flex-row w-full;

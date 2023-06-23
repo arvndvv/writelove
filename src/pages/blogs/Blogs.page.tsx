@@ -12,7 +12,7 @@ export const Blogs = () => {
   const handleReadMore = (id: string) => {
     navigate(WriteRoutes.READ + "/" + id);
   };
-  const allBlogs = getAllBlogs();
+  const allBlogs = getAllBlogs().reverse();
   return (
     <div className="Home">
       <h1 className="text-2xl font-medium my-5">Blogs</h1>

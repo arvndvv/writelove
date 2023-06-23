@@ -1,5 +1,9 @@
 .blog-preview {
   @apply p-10;
+
+  li {
+    @apply pl-5 list-disc list-inside;
+  }
 }
 .blog-preview__head {
   @apply text-2xl font-bold mb-5;
