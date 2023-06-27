@@ -16,8 +16,12 @@ export const createBlog = (topic: ITopic, description: string) => {
     }
     return blog as IBlog;
 }
-export const getAllBlogs = () => {
-    return storeState.blogs || [];
+export const getAllBlogs = (sort = 'desc') => {
+    const blogs = storeState.blogs || [];
+    if (sort === 'desc') {
+        return [...blogs].reverse();
+    }
+    return blogs;
 }
 export const getBlogById = (id: string) => {
     const blogs = getAllBlogs();
