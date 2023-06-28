@@ -1,84 +1,47 @@
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import "react-quill/dist/quill.bubble.css";
+import { useRef } from "react";
 import "./Editor.styles.scss";
+import { Editor } from "@tinymce/tinymce-react";
+import "tinymce/icons/default";
 
-const quillContainerData = [
-  ["bold", "italic", "underline", "strike", "blockquote"],
-  [{ list: "ordered" }, { list: "bullet" }, { indent: "-4" }, { indent: "+4" }],
-  ["link", "image"], //"video"
-  // ["clean"],
-];
-
-const quillFormats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  // "video",
-];
-// function imageHandler() {
-//   //   const input = document.createElement("input");
-//   //   input.setAttribute("type", "file");
-//   //   input.setAttribute("accept", "image/*");
-//   //   input.click();
-//   //   input.onchange = async () => {
-//   //     if (!input?.files) return;
-//   //     const file = input.files[0];
-//   //     let formData = new FormData();
-//   //     formData.append("uri", file);
-//   //     const range = this.getSelection(true);
-//   //     this.insertEmbed(
-//   //       range.index,
-//   //       "image",
-//   //       `${window.location.origin}/images/loaders/placeholder.gif`
-//   //     );
-//   //     this.setSelection(range.index + 1);
-//   //     //fetch api call for upload the image
-//   //     const data = await fetch("" + "/api/upload", {
-//   //       method: "POST",
-//   //       headers: {
-//   //         Authorization: `Bearer ${localStorage.getItem("feathers-jwt")}`,
-//   //       },
-//   //       body: formData,
-//   //     });
-//   //     const res = await data.json();
-//   //     this.deleteText(range.index, 1);
-//   //     this.insertEmbed(range.index, "image", res.url);
-//   //   };
-// }
-export default function Editor({ state, setState }: any) {
-  // let quill: any;
-  const handleChangeQuillStandart = (textQuillStandart: any) => {
-    setState({ textQuillStandart });
+export default function WriteEditor({ state, setState }: any) {
+  const editorRef: any = useRef(null);
+  const log = () => {
+    if (editorRef.current) {
+      console.log(editorRef.current.getContent());
+    }
   };
-
+  function test(x) {
+    console.log(x);
+  }
   return (
-    <ReactQuill
-      // ref={(el) => {
-      //   quill = el;
-      // }}
-      theme="snow"
-      className="mb-4"
-      value={state.textQuillStandart}
-      onChange={(v) => handleChangeQuillStandart(v)}
-      modules={{
-        toolbar: {
-          container: quillContainerData,
-          //   handlers: {
-          //     image: imageHandler,
-          //   },
-        },
-      }}
-      formats={quillFormats}
-      preserveWhitespace={true}
-    />
+    <>
+      <Editor
+        onChange={log}
+        apiKey={process.env.REACT_APP_TINYMCE_API_KEY}
+        onInit={(evt, editor) => (editorRef.current = editor)}
+        initialValue="<p>Write your content.</p>"
+        init={{
+          height: 500,
+          menubar: false,
+          paste_data_images: true,
+          plugins: [
+            "advlist autolink lists link image imagetools  charmap print preview anchor code",
+            "searchreplace visualblocks  fullscreen",
+            "emoticons",
+            "insertdatetime media table paste help wordcount tinycomments",
+          ],
+          toolbar:
+            "undo redo | blocks fontfamily fontsize  | bold italic underline strikethrough code | emoticons image | align lineheight | checklist numlist bullist indent outdent | removeformat",
+          content_style:
+            "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+          images_upload_handler: async function (blobInfo, success, failure) {
+            const base64 = await blobInfo.base64();
+            return success(base64);
+          } as any,
+          tinycomments_mode: "embedded",
+          tinycomments_author: "currentAuthor",
+        }}
+      />
+    </>
   );
 }

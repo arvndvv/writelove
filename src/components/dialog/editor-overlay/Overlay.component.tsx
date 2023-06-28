@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Overlay.styles.scss";
-import Editor from "../../editor/Editor.component";
 import { createBlog } from "../../../services/blog.service";
 import { toaster } from "../../../utils/toaster";
 import { useGlobalState } from "../../../global/store";
+import WriteEditor from "../../editor/Editor.component";
 
 export default function EditorOverlay({
   openEditor,
@@ -44,7 +44,7 @@ export default function EditorOverlay({
             </span>
           </div>
           <div className="overlay__content--body">
-            <Editor state={state} setState={setState} />
+            <WriteEditor state={state} setState={setState} />
           </div>
           <div className="overlay__content--footer">
             <button
