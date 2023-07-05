@@ -13,6 +13,8 @@ export const createBlog = (topic: ITopic, description: string) => {
         name: topic.name,
         description,
         keywords: topic.keywords,
+        author: 'admin',
+        date_created: new Date().toISOString(),
     }
     return blog as IBlog;
 }

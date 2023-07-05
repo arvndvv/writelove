@@ -40,7 +40,9 @@ export interface IBlog {
     name: string,
     description: string,
     keywords: string[],
-    id: string
+    id: string,
+    author: string,
+    date_created: string,
 }
 export interface ICategories {
     [ECategories.CUSTOM]: ITopic[],

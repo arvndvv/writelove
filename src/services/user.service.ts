@@ -4,6 +4,7 @@ const initialState = {
     user: {
         name: "John Doe",
         email: "john@writelove.com",
+        id: "user-1",
     },
     blogs: [],
     authenticated: false,

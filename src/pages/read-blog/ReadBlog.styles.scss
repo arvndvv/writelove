@@ -4,6 +4,12 @@
   li {
     @apply pl-5 list-disc list-inside;
   }
+  &__footer {
+    @apply mt-10 flex justify-between items-center bg-slate-200 p-2;
+    &__details {
+      @apply flex flex-col text-gray-600;
+    }
+  }
 }
 .blog-preview__head {
   @apply text-2xl font-bold mb-5;

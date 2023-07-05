@@ -7,12 +7,10 @@ export default function WriteEditor({ state, setState }: any) {
   const editorRef: any = useRef(null);
   const log = () => {
     if (editorRef.current) {
-      console.log(editorRef.current.getContent());
+      setState(editorRef.current.getContent());
     }
   };
-  function test(x) {
-    console.log(x);
-  }
+
   return (
     <>
       <Editor
@@ -34,10 +32,7 @@ export default function WriteEditor({ state, setState }: any) {
             "undo redo | blocks fontfamily fontsize  | bold italic underline strikethrough code | emoticons image | align lineheight | checklist numlist bullist indent outdent | removeformat",
           content_style:
             "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-          images_upload_handler: async function (blobInfo, success, failure) {
-            const base64 = await blobInfo.base64();
-            return success(base64);
-          } as any,
+
           tinycomments_mode: "embedded",
           tinycomments_author: "currentAuthor",
         }}

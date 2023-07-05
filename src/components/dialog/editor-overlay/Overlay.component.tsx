@@ -10,7 +10,7 @@ export default function EditorOverlay({
   setOpenEditor,
   topic,
 }: any) {
-  const [state, setState] = useState({ textQuillStandart: "" });
+  const [state, setState] = useState("");
   const { globalState, setGlobalState } = useGlobalState();
   useEffect(() => {
     if (openEditor) document.body.style.overflow = "hidden";
@@ -18,7 +18,7 @@ export default function EditorOverlay({
   }, [openEditor]);
 
   const handleGenerate = () => {
-    const newBlog = createBlog(topic, state.textQuillStandart);
+    const newBlog = createBlog(topic, state);
     const existingBlogs = globalState.blogs || [];
     setGlobalState((prev) => ({
       ...prev,
