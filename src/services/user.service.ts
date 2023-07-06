@@ -2,7 +2,7 @@ import { IGlobalState } from "../models/interfaces";
 
 const initialState = {
     user: {
-        name: "John Doe",
+        name: "Arv Ind",
         email: "john@writelove.com",
         id: "user-1",
     },
