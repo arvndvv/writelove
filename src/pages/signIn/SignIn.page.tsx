@@ -5,7 +5,10 @@ import signinImg from "../../assets/images/signin.jpg";
 export const SignIn = () => {
   const { globalState, setGlobalState } = useGlobalState();
   const handleGuestMode = () => {
-    setGlobalState({ ...globalState, authenticated: true });
+    setGlobalState({
+      ...globalState,
+      user: { ...globalState.user, authenticated: true },
+    });
   };
   return (
     <div className="sign-in m-auto">

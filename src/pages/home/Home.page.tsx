@@ -5,5 +5,5 @@ import { Landing } from "../landing/Landing.page";
 
 export const Home = () => {
   const { globalState } = useGlobalState();
-  return <>{globalState.authenticated ? <Blogs /> : <Landing />}</>;
+  return <>{globalState.user.authenticated ? <Blogs /> : <Landing />}</>;
 };

@@ -9,15 +9,15 @@ export const HeaderLinks: (props: {
   setMenuOpen: any;
   menuOpen: boolean;
 }) => any = ({ globalState, setMenuOpen, menuOpen }) => {
-  const links = globalState.authenticated ? signedInLinks : signedOutLinks;
+  const links = globalState.user.authenticated ? signedInLinks : signedOutLinks;
   return (
     <>
       <nav
         className={`head__links ${
-          globalState.authenticated && "head__links__signed-in"
+          globalState.user.authenticated && "head__links__signed-in"
         } ${menuOpen && "head__links__signed-in--open"}`}
       >
-        {globalState.authenticated && (
+        {globalState.user.authenticated && (
           <span className="material-icons close" onClick={setMenuOpen}>
             close
           </span>

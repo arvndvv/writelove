@@ -1,11 +1,15 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface IGlobalState {
-    user: {
+export interface IUser {
+    personal_details: {
         name: string;
         email: string;
     };
+    id: string;
     authenticated: boolean;
+}
+export interface IGlobalState {
+    user: IUser;
     blogs: IBlog[];
 }
 export interface IGlobalStateContext {
@@ -43,6 +47,7 @@ export interface IBlog {
     id: string,
     author: string,
     date_created: string,
+    author_id: string,
 }
 export interface ICategories {
     [ECategories.CUSTOM]: ITopic[],

@@ -11,7 +11,7 @@ export const AuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
   const { globalState } = useGlobalState();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!globalState.authenticated) {
+    if (!globalState.user.authenticated) {
       toaster.error("You are not authenticated.");
       navigate(WriteRoutes.SIGN_IN);
     }
@@ -24,7 +24,7 @@ export const UnAuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
   const { globalState } = useGlobalState();
   const navigate = useNavigate();
   useEffect(() => {
-    if (globalState.authenticated) {
+    if (globalState.user.authenticated) {
       toaster.success("You are authenticated.");
       navigate(WriteRoutes.HOME);
     }

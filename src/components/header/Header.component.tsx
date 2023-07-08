@@ -14,7 +14,7 @@ export const Header = () => {
   return (
     <>
       <div className="head__container">
-        {state.globalState.authenticated && (
+        {state.globalState.user.authenticated && (
           <span
             className="material-icons md-48 sm:hidden cursor-pointer"
             onClick={handleHamClick}
@@ -31,7 +31,7 @@ export const Header = () => {
           setMenuOpen={handleHamClick}
           menuOpen={menuOpen}
         />
-        {state.globalState.authenticated && <HeaderProfile {...state} />}
+        {state.globalState.user.authenticated && <HeaderProfile {...state} />}
       </div>
       <Outlet />
     </>

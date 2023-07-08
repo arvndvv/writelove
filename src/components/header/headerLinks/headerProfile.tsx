@@ -28,7 +28,7 @@ export const HeaderProfile = (props: {
     <div className="profile">
       <div className="profile__card" onClick={handleProfileClick}>
         <span className="material-icons">face</span>
-        <span>{globalState.user.name}</span>
+        <span>{globalState.user.personal_details.name}</span>
         <span
           className={`material-icons ml-1 transition-transform duration-150 ${
             profileOpen ? "flip-horizontal" : ""
