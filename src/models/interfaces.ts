@@ -12,9 +12,8 @@ export interface IGlobalState {
     user: IUser;
     blogs: IBlog[];
 }
-export interface IGlobalStateContext {
-    globalState: IGlobalState;
-    setGlobalState: Dispatch<SetStateAction<IGlobalState>>;
+export interface IGlobalStateContext extends IGlobalState {
+    setGlobalState: Dispatch<IAction>;
 }
 export interface IHeaderLinks {
     name: string;
@@ -54,4 +53,17 @@ export interface ICategories {
     [ECategories.ICP]: ITopic[],
     [ECategories.MISSION]: ITopic[],
     [ECategories.PRODUCT]: ITopic[],
+}
+
+export enum EActions {
+    UPDATE_USER = "UPDATE_USER",
+    ADD_USER = "ADD_USER",
+    UPDATE_BLOGS = "UPDATE_BLOGS",
+    ADD_BLOG = "ADD_BLOG",
+    UPDATE_AUTHENTICATION = "UPDATE_AUTHENTICATION",
+}
+
+export interface IAction {
+    type: EActions;
+    payload: any;
 }

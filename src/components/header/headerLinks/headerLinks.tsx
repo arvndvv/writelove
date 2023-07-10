@@ -2,22 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Header.styles.scss";
 import { signedInLinks, signedOutLinks } from "../../../data/header.data";
-import { IGlobalState } from "../../../models/interfaces";
+import { useGlobalState } from "../../../global/store";
 
 export const HeaderLinks: (props: {
-  globalState: IGlobalState;
   setMenuOpen: any;
   menuOpen: boolean;
-}) => any = ({ globalState, setMenuOpen, menuOpen }) => {
-  const links = globalState.user.authenticated ? signedInLinks : signedOutLinks;
+}) => any = ({ setMenuOpen, menuOpen }) => {
+  const { user } = useGlobalState();
+  const links = user ? signedInLinks : signedOutLinks;
   return (
     <>
       <nav
-        className={`head__links ${
-          globalState.user.authenticated && "head__links__signed-in"
-        } ${menuOpen && "head__links__signed-in--open"}`}
+        className={`head__links ${user && "head__links__signed-in"} ${
+          menuOpen && "head__links__signed-in--open"
+        }`}
       >
-        {globalState.user.authenticated && (
+        {user && (
           <span className="material-icons close" onClick={setMenuOpen}>
             close
           </span>

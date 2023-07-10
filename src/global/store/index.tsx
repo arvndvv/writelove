@@ -1,29 +1,39 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  Context,
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 import { IGlobalStateContext } from "../../models/interfaces";
-import { getUser, setUser } from "../../services/user.service";
+import { getCurrentUser } from "../../services/user.service";
 import { getAllBlogs } from "../../services/blog.service";
+import { storeReducer } from "./reducer";
 
-export const storeState = {
-  user: getUser(),
+export const initialStoreState: IGlobalStateContext = {
+  user: getCurrentUser(),
   blogs: getAllBlogs(),
+  setGlobalState: () => {},
 };
 
-export const GlobalStore = createContext<IGlobalStateContext>({
-  globalState: storeState,
-  setGlobalState: () => {},
-});
+const GlobalStoreContext = createContext(initialStoreState);
+const { Provider } = GlobalStoreContext as Context<IGlobalStateContext>;
 
-export function useGlobalState() {
-  return useContext(GlobalStore);
+function useGlobalState() {
+  return useContext(GlobalStoreContext);
 }
-export function GlobalStateProvider({ children }: any) {
-  const [globalState, setGlobalState] = useState(storeState);
+
+function GlobalStateProvider({ children }: any) {
+  const store = useReducer(storeReducer, initialStoreState);
+
+  const [globalState, setGlobalState] = store;
   useEffect(() => {
-    setUser(globalState);
-  }, [globalState]);
+    console.log("store", store);
+  }, [globalState.user]);
+
   return (
-    <GlobalStore.Provider value={{ globalState, setGlobalState }}>
-      {children}
-    </GlobalStore.Provider>
+    <Provider value={{ ...globalState, setGlobalState }}>{children}</Provider>
   );
 }
+
+export { GlobalStateProvider, useGlobalState };

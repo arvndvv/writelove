@@ -1,13 +1,15 @@
 import React from "react";
 import { useGlobalState } from "../../global/store";
 import signinImg from "../../assets/images/signin.jpg";
+import { EActions } from "../../models/interfaces";
+import { getAllUsers } from "../../services/user.service";
 
 export const SignIn = () => {
-  const { globalState, setGlobalState } = useGlobalState();
+  const { setGlobalState } = useGlobalState();
   const handleGuestMode = () => {
     setGlobalState({
-      ...globalState,
-      user: { ...globalState.user, authenticated: true },
+      type: EActions.UPDATE_AUTHENTICATION,
+      payload: getAllUsers()[0],
     });
   };
   return (

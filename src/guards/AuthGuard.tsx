@@ -8,27 +8,27 @@ interface IAuthGuardProps {
 }
 
 export const AuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
-  const { globalState } = useGlobalState();
+  const { user } = useGlobalState();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!globalState.user.authenticated) {
+    if (!user) {
       toaster.error("You are not authenticated.");
       navigate(WriteRoutes.SIGN_IN);
     }
-  }, [globalState, navigate]);
+  }, [navigate, user]);
 
   return <>{component}</>;
 };
 
 export const UnAuthGuard: (props: IAuthGuardProps) => any = ({ component }) => {
-  const { globalState } = useGlobalState();
+  const { user } = useGlobalState();
   const navigate = useNavigate();
   useEffect(() => {
-    if (globalState.user.authenticated) {
+    if (user) {
       toaster.success("You are authenticated.");
       navigate(WriteRoutes.HOME);
     }
-  }, [globalState, navigate]);
+  }, [navigate, user]);
 
   return <>{component}</>;
 };

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Overlay.styles.scss";
-import { createBlog } from "../../../services/blog.service";
+import { createNewBlog } from "../../../services/blog.service";
 import { toaster } from "../../../utils/toaster";
 import { useGlobalState } from "../../../global/store";
 import WriteEditor from "../../editor/Editor.component";
+import { EActions } from "../../../models/interfaces";
 
 export default function EditorOverlay({
   openEditor,
@@ -11,19 +12,20 @@ export default function EditorOverlay({
   topic,
 }: any) {
   const [state, setState] = useState("");
-  const { globalState, setGlobalState } = useGlobalState();
+  const { user, setGlobalState } = useGlobalState();
   useEffect(() => {
     if (openEditor) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
-  }, [openEditor]);
+    console.log("state", state);
+  }, [openEditor, state]);
 
   const handleGenerate = () => {
-    const newBlog = createBlog(topic, state);
-    const existingBlogs = globalState.blogs || [];
-    setGlobalState((prev) => ({
-      ...prev,
-      blogs: [...existingBlogs, newBlog],
-    }));
+    const newBlog = createNewBlog(topic, state, user);
+    setGlobalState({
+      type: EActions.ADD_BLOG,
+      payload: newBlog,
+    });
+    setState("");
     toaster.success("Blog generated successfully.");
     setOpenEditor(false);
   };
@@ -44,7 +46,11 @@ export default function EditorOverlay({
             </span>
           </div>
           <div className="overlay__content--body">
-            <WriteEditor state={state} setState={setState} />
+            <WriteEditor
+              state={state}
+              setState={setState}
+              openEditor={openEditor}
+            />
           </div>
           <div className="overlay__content--footer">
             <button

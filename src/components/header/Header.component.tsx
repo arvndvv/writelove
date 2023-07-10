@@ -6,7 +6,7 @@ import { HeaderProfile } from "./headerLinks/headerProfile";
 import { useState } from "react";
 
 export const Header = () => {
-  const state = useGlobalState();
+  const { user } = useGlobalState();
   const [menuOpen, setMenuOpen] = useState(false);
   const handleHamClick = () => {
     setMenuOpen((prev) => !prev);
@@ -14,7 +14,7 @@ export const Header = () => {
   return (
     <>
       <div className="head__container">
-        {state.globalState.user.authenticated && (
+        {user && (
           <span
             className="material-icons md-48 sm:hidden cursor-pointer"
             onClick={handleHamClick}
@@ -26,12 +26,8 @@ export const Header = () => {
         <Link to="/">
           <strong className="logo">writelove.</strong>
         </Link>
-        <HeaderLinks
-          globalState={state.globalState}
-          setMenuOpen={handleHamClick}
-          menuOpen={menuOpen}
-        />
-        {state.globalState.user.authenticated && <HeaderProfile {...state} />}
+        <HeaderLinks setMenuOpen={handleHamClick} menuOpen={menuOpen} />
+        {user && <HeaderProfile />}
       </div>
       <Outlet />
     </>

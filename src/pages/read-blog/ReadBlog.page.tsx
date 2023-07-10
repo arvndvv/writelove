@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getBlogById } from "../../services/blog.service";
 import Parser from "html-react-parser";
 import "./ReadBlog.styles.scss";
+import { getBlogById } from "../../services/blog.service";
 
 export default function ReadBlog() {
   let { id } = useParams();

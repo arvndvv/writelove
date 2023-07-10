@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import "./Blogs.styles.scss";
-import { getAllBlogs } from "../../services/blog.service";
 import { IBlog } from "../../models/interfaces";
 import Parser from "html-react-parser";
 import imgPlaceholder from "../../assets/images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
 import { WriteRoutes } from "../../constants/routes";
+import { getAllBlogs } from "../../services/blog.service";
 export const Blogs = () => {
   const navigate = useNavigate();
   const [allBlogs, setAllBlogs] = React.useState<IBlog[]>([]);

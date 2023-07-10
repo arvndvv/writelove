@@ -52,6 +52,10 @@ export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
         openEditor={openEditor}
         setOpenEditor={setOpenEditor}
         topic={selectedTopic}
+        onClose={() => {
+          console.log("hi");
+          setSelectedTopic(null);
+        }}
       />
       <ConfirmModal
         isOpen={isDialogOpen}
