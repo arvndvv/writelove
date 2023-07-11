@@ -1,4 +1,3 @@
-import { useGlobalState } from "../global/store";
 import { IBlog, ITopic, IUser } from "../models/interfaces";
 
 export const getAllBlogs = (sort = 'desc') => {
@@ -31,10 +30,12 @@ export const createNewBlog = (topic: ITopic, description: string, currentUser: I
     }
     return blog as IBlog;
 }
-
+export const setBlogs = (blogs: IBlog[]) => {
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+}
 const generateBlogId = () => {
     const blogs = getAllBlogs();
-    const id = blogs?.length || 0;
+    const id = blogs.length ? Number(blogs[blogs.length - 1]['id'].split('-')[1]) : 0;
     return 'blog-' + (id + 1);
 }
 

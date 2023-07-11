@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch } from "react";
 
 export interface IUser {
     personal_details: {
@@ -28,6 +28,7 @@ export interface ITopicBasic {
 }
 export interface ITopic extends ITopicBasic {
     id: string;
+    category: ECategories;
 }
 
 
@@ -37,6 +38,12 @@ export enum ECategories {
     ICP = "icp",
     MISSION = "mission",
     PRODUCT = "product",
+    TEAM = "team",
+    VISION = "vision",
+    aa = "aa",
+    bb = "bb",
+    cc = "cc",
+    dd = "dd",
 }
 
 export interface IBlog {
@@ -53,6 +60,12 @@ export interface ICategories {
     [ECategories.ICP]: ITopic[],
     [ECategories.MISSION]: ITopic[],
     [ECategories.PRODUCT]: ITopic[],
+    [ECategories.TEAM]: ITopic[],
+    [ECategories.VISION]: ITopic[],
+    [ECategories.aa]: ITopic[],
+    [ECategories.bb]: ITopic[],
+    [ECategories.cc]: ITopic[],
+    [ECategories.dd]: ITopic[],
 }
 
 export enum EActions {
@@ -60,6 +73,7 @@ export enum EActions {
     ADD_USER = "ADD_USER",
     UPDATE_BLOGS = "UPDATE_BLOGS",
     ADD_BLOG = "ADD_BLOG",
+    DELETE_BLOG = "DELETE_BLOG",
     UPDATE_AUTHENTICATION = "UPDATE_AUTHENTICATION",
 }
 

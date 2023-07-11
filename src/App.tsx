@@ -29,7 +29,10 @@ function App() {
             ></Route>
             <Route path={WriteRoutes.READ}>
               <Route index element={<Navigate to="../" />} />
-              <Route path=":id" element={<ReadBlog />} />
+              <Route
+                path=":id"
+                element={<AuthGuard component={<ReadBlog />} />}
+              />
             </Route>
           </Route>
         </Routes>

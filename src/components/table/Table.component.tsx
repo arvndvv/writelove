@@ -17,9 +17,10 @@ import { deleteTopic } from "../../services/topics.service";
 import ConfirmModal from "../dialog/confirm-dialog/ConfirmDialog.component";
 import Overlay from "../dialog/editor-overlay/Overlay.component";
 
-export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
-  tableData,
-}) => {
+export const WriteTable: (props: {
+  tableData: ITopic[];
+  reRender: () => void;
+}) => any = ({ tableData, reRender }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<ITopic | null>(null);
   const [openEditor, setOpenEditor] = useState(false);
@@ -39,6 +40,7 @@ export const WriteTable: (props: { tableData: ITopic[] }) => any = ({
     if (!selectedTopic) return;
     deleteTopic(selectedTopic.id);
     setIsDialogOpen(false);
+    reRender();
   };
 
   const handleWrite = (topic: ITopic) => {

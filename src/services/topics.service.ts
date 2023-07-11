@@ -1,5 +1,7 @@
 import { lists } from "../data/categories.data";
 import { ICategories, ECategories, ITopic, ITopicBasic } from "../models/interfaces";
+import { categories } from "../data/tabs.data";
+
 const getTopics = () => {
     const topics = localStorage.getItem('topics');
     return topics ? JSON.parse(topics) : lists;
@@ -38,10 +40,17 @@ export const deleteTopic = (id: string | null) => {
 export const addTopic = (topic: ITopicBasic, type: ECategories = ECategories.CUSTOM) => {
     const topics = getTopics();
     const id = generateId(type);
-    topics[type].push({ ...topic, id });
+    topics[type].push({ ...topic, id, category: type });
     setTopics(topics);
 }
 
+export const getAllCategories = () => {
+    const categoriesData = localStorage.getItem('categories');
+    if (!categoriesData) {
+        localStorage.setItem('categories', JSON.stringify(categories));
+    }
+    return categoriesData ? JSON.parse(categoriesData) : categories;
+}
 export const generateId = (type: ECategories) => {
     const topics = getTopicsByType(type);
     const id = Number(topics[topics.length - 1].id.split('-')[1]);

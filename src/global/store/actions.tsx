@@ -1,4 +1,4 @@
-import { addNewBlog } from "../../services/blog.service";
+import { addNewBlog, setBlogs } from "../../services/blog.service";
 import { setCurrentUser } from "../../services/user.service";
 
 export function HandleSignInSignOut(state, payload) {
@@ -15,4 +15,10 @@ export function handleAddBlog(state, payload) {
     ...state,
     blogs,
   };
+}
+
+export function handleDeleteBlog(state, payload) {
+  const blogs = state.blogs.filter((blog) => blog.id !== payload);
+  setBlogs(blogs);
+  return { ...state, blogs };
 }

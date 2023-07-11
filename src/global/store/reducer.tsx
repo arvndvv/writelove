@@ -1,5 +1,9 @@
 import { EActions, IAction, IGlobalState } from "../../models/interfaces";
-import { HandleSignInSignOut, handleAddBlog } from "./actions";
+import {
+  HandleSignInSignOut,
+  handleAddBlog,
+  handleDeleteBlog,
+} from "./actions";
 
 export function storeReducer(state: IGlobalState, action: IAction) {
   switch (action.type) {
@@ -14,6 +18,9 @@ export function storeReducer(state: IGlobalState, action: IAction) {
     }
     case EActions.ADD_BLOG: {
       return handleAddBlog(state, action.payload);
+    }
+    case EActions.DELETE_BLOG: {
+      return handleDeleteBlog(state, action.payload);
     }
     default:
       throw new Error("action not found: " + action.type);

@@ -1,13 +1,33 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Parser from "html-react-parser";
 import "./ReadBlog.styles.scss";
 import { getBlogById } from "../../services/blog.service";
+import { getUserById } from "../../services/user.service";
+import { EActions, IUser } from "../../models/interfaces";
+import { useGlobalState } from "../../global/store";
 
 export default function ReadBlog() {
+  let { setGlobalState } = useGlobalState();
+  const navigate = useNavigate();
   let { id } = useParams();
   const blog = id ? getBlogById(id) : {};
-  const handleDelete = () => {};
+  const date_created = new Date(blog?.date_created || "").toLocaleString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }
+  );
+  const author = getUserById(blog?.author_id) as IUser;
+  const handleDelete = () => {
+    setGlobalState({
+      type: EActions.DELETE_BLOG,
+      payload: blog.id,
+    });
+    navigate("/");
+  };
   return (
     <div className="blog-preview">
       <h1 className="blog-preview__head">{blog?.name}</h1>
@@ -15,10 +35,10 @@ export default function ReadBlog() {
       <div className="blog-preview__footer">
         <div className="blog-preview__footer__details">
           <span className="blog-preview__footer--author">
-            Author: {blog.author || "John Doe"}
+            Author: {author?.personal_details?.name}
           </span>
           <span className="blog-preview__footer--date">
-            Date created: {blog?.date_created || ""}
+            Date created: {date_created}
           </span>
         </div>
         <span

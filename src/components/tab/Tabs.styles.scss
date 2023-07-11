@@ -1,9 +1,20 @@
 .tab {
-  @apply flex gap-1 sm:gap-3 flex-wrap;
   &__item {
-    @apply py-1 p-1  sm:px-5 hover:text-base hover:border-b-4 border-base cursor-pointer font-semibold;
+    @apply py-1 p-1  sm:px-5 hover:text-base hover:border-b-4 border-base cursor-pointer font-semibold flex items-center gap-3;
     &--active {
       @apply text-base border-b-4 border-base;
     }
+  }
+}
+.tabs_container {
+  padding-bottom: 0.5rem;
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply bg-base;
   }
 }

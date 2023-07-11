@@ -36,7 +36,7 @@ export function AddTopic({
             {activeTab !== ECategories.ALL ? activeTab : ECategories.CUSTOM}
           </span>
         </h3>
-        <Input topic={topic} setTopic={setTopic} />
+        <Input value={topic} setValue={setTopic} />
         <Keywords keywords={keywords} setKeywords={setKeywords} />
         <button
           className="btn btn-cta mt-2 float-right"

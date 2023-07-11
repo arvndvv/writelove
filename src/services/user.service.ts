@@ -18,6 +18,11 @@ export const getAllUsers = () => {
     }
     return users ? JSON.parse(users) : usersInitial;
 }
+export const getUserById = (id: string) => {
+    if (!id) return;
+    const users = getAllUsers();
+    return users.find((user: IUser) => user.id === id);
+}
 export const getCurrentUser = () => {
     const user = localStorage.getItem("currenrUser");
     return user ? JSON.parse(user) : null;

@@ -21,7 +21,7 @@ export const Recommendations = () => {
         <Tabs activeTab={activeTab} setActiveTab={setActiveTab}></Tabs>
         <AddTopic activeTab={activeTab} reRender={reRender} />
       </div>
-      <WriteTable tableData={tableData}></WriteTable>
+      <WriteTable tableData={tableData} reRender={reRender}></WriteTable>
     </div>
   );
 };
