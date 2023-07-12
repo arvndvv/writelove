@@ -28,7 +28,7 @@ export interface ITopicBasic {
 }
 export interface ITopic extends ITopicBasic {
     id: string;
-    category: ECategories;
+    category: string;
 }
 
 
@@ -38,12 +38,6 @@ export enum ECategories {
     ICP = "icp",
     MISSION = "mission",
     PRODUCT = "product",
-    TEAM = "team",
-    VISION = "vision",
-    aa = "aa",
-    bb = "bb",
-    cc = "cc",
-    dd = "dd",
 }
 
 export interface IBlog {
@@ -55,18 +49,11 @@ export interface IBlog {
     date_created: string,
     author_id: string,
 }
-export interface ICategories {
-    [ECategories.CUSTOM]: ITopic[],
-    [ECategories.ICP]: ITopic[],
-    [ECategories.MISSION]: ITopic[],
-    [ECategories.PRODUCT]: ITopic[],
-    [ECategories.TEAM]: ITopic[],
-    [ECategories.VISION]: ITopic[],
-    [ECategories.aa]: ITopic[],
-    [ECategories.bb]: ITopic[],
-    [ECategories.cc]: ITopic[],
-    [ECategories.dd]: ITopic[],
+export interface ICategory {
+    name: string;
+    value: string;
 }
+
 
 export enum EActions {
     UPDATE_USER = "UPDATE_USER",

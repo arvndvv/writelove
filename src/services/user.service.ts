@@ -31,6 +31,17 @@ export const getCurrentUser = () => {
 export const setCurrentUser = (user: IUser | null) => {
     localStorage.setItem("currenrUser", JSON.stringify(user));
 }
+export const updateUserName = (name: string) => {
+    const currentUser = getCurrentUser();
+    if (!currentUser) return;
+    const users = getAllUsers();
+    const userIndex = users.findIndex((user: IUser) => currentUser.id === user.id);
+    if (userIndex === -1) return;
+    users[userIndex].personal_details.name = name;
+    localStorage.setItem("users", JSON.stringify(users));
+    currentUser.personal_details.name = name;
+    setCurrentUser(currentUser);
+}
 export const generateUserId = () => {
     const users = getAllUsers() || [];
     const id = users.length + 1;

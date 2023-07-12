@@ -1,4 +1,4 @@
-import { ECategories, ICategories, ITopic } from "../models/interfaces";
+import { ECategories, ITopic } from "../models/interfaces";
 
 
 export const icpList: ITopic[] = [
@@ -204,15 +204,9 @@ export const customList: ITopic[] = [
 
 ];
 
-export const lists: ICategories = {
+export const lists = {
     [ECategories.ICP]: icpList,
     [ECategories.MISSION]: missionList,
     [ECategories.PRODUCT]: productList,
     [ECategories.CUSTOM]: customList,
-    [ECategories.TEAM]: [],
-    [ECategories.VISION]: [],
-    [ECategories.aa]: [],
-    [ECategories.bb]: [],
-    [ECategories.cc]: [],
-    [ECategories.dd]: [],
 }

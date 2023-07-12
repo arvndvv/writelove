@@ -12,7 +12,7 @@ export const addNewBlog = (blog: IBlog) => {
     const blogs = getAllBlogs();
     blogs.push(blog);
     localStorage.setItem("blogs", JSON.stringify(blogs));
-    return blogs;
+    return blogs.reverse();
 }
 export const getBlogById = (id: string) => {
     const blogs = getAllBlogs();

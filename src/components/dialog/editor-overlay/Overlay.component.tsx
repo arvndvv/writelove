@@ -14,8 +14,11 @@ export default function EditorOverlay({
   const [state, setState] = useState("");
   const { user, setGlobalState } = useGlobalState();
   useEffect(() => {
-    if (openEditor) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
+    if (openEditor) document.body.style.overflowY = "hidden";
+    else {
+      document.body.style.overflowY = "auto";
+      document.body.style.overflowX = "hidden";
+    }
     console.log("state", state);
   }, [openEditor, state]);
 
@@ -57,7 +60,7 @@ export default function EditorOverlay({
               className="btn btn-cta float-right"
               onClick={handleGenerate}
             >
-              Generate
+              Publish
             </button>
           </div>
         </div>

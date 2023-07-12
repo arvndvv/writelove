@@ -27,7 +27,7 @@ export default function WriteEditor({ state, setState, openEditor }: any) {
         initialValue="<p>Write your content.</p>"
         init={{
           height: 500,
-          menubar: false,
+          menubar: true,
           paste_data_images: true,
           plugins: [
             "advlist autolink lists link image imagetools  charmap print preview anchor code",

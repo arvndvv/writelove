@@ -63,7 +63,7 @@ export const WriteTable: (props: {
         isOpen={isDialogOpen}
         setIsOpen={setIsDialogOpen}
         title="Delete Topic"
-        description="Are you sure you want to delete this topic from recommended topics
+        description="Are you sure you want to delete this topic from this
             list? Topic will be permanently removed. This action cannot be
             undone."
       >

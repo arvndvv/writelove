@@ -1,27 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Blogs.styles.scss";
 import { IBlog } from "../../models/interfaces";
 import Parser from "html-react-parser";
 import imgPlaceholder from "../../assets/images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
 import { WriteRoutes } from "../../constants/routes";
-import { getAllBlogs } from "../../services/blog.service";
+import { useGlobalState } from "../../global/store";
 export const Blogs = () => {
   const navigate = useNavigate();
-  const [allBlogs, setAllBlogs] = React.useState<IBlog[]>([]);
+  const { blogs } = useGlobalState();
   const handleReadMore = (id: string) => {
     navigate(WriteRoutes.READ + "/" + id);
   };
-  useEffect(() => {
-    setAllBlogs(getAllBlogs());
-  }, []);
 
   return (
     <div className="Home">
       <h1 className="text-2xl font-medium my-5">Blogs</h1>
       <div className="blogs">
-        {allBlogs.length ? (
-          allBlogs.map((blog: IBlog, index: number) => {
+        {blogs.length ? (
+          blogs.map((blog: IBlog, index: number) => {
             const match = blog.description.match(
               // eslint-disable-next-line no-useless-escape
               /\<img.+src\=(?:\"|\')(.+?)(?:\"|\')(?:.+?)\>/
