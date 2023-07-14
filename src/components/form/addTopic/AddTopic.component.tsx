@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import WriteModal from "../../dialog/blank-dialog/dialog.component";
 import { BlogButton } from "../../button/blogButton/BlogButton.component";
 import { Input } from "../input/Input.component";
@@ -26,6 +26,10 @@ export function AddTopic({
     setKeywords([]);
     setOpen(false);
   };
+  useEffect(() => {
+    setTopic("");
+    setKeywords([]);
+  }, [open]);
   return (
     <>
       <BlogButton onClick={() => setOpen(true)}>Add Topic</BlogButton>
@@ -36,11 +40,13 @@ export function AddTopic({
             {activeTab !== ECategories.ALL ? activeTab : ECategories.CUSTOM}
           </span>
         </h3>
-        <Input value={topic} setValue={setTopic} />
+        <Input value={topic} setValue={setTopic} testid="topicInput" />
         <Keywords keywords={keywords} setKeywords={setKeywords} />
         <button
-          className="btn btn-cta mt-2 float-right"
+          className="btn btn-cta mt-2 float-right disabled:opacity-50 disabled:pointer-events-none"
           onClick={handleAddTopic}
+          disabled={!topic}
+          data-testid="addTopicButton"
         >
           Add
         </button>
