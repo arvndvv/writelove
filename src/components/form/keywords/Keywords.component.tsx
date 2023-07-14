@@ -16,25 +16,36 @@ export function Keywords({ keywords, setKeywords }: any) {
     });
   };
   return (
-    <div className="input-area">
-      {keywords.map((keyword: string, index: number) => (
-        <span className="keyword" key={index}>
-          {keyword}
-          <span
-            className="material-icons remove"
-            onClick={() => removeKeyword(index)}
-          >
-            close
+    <div className="flex flex-col">
+      <div className="input-area">
+        {keywords.map((keyword: string, index: number) => (
+          <span className="keyword" key={index}>
+            {keyword}
+            <span
+              className="material-icons remove"
+              onClick={() => removeKeyword(index)}
+            >
+              close
+            </span>
           </span>
-        </span>
-      ))}
-      <input
-        className="input"
-        type="text"
-        value={text}
-        placeholder="Keywords..."
-        onChange={handleInput}
-      />
+        ))}
+        <input
+          className="input"
+          type="text"
+          value={text}
+          placeholder="Keywords..."
+          onChange={handleInput}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setKeywords((prev: any) => [...prev, text]);
+              setText("");
+            }
+          }}
+        />
+      </div>
+      <small className="mb-4 text-slate-400">
+        press enter or comma to add keyword
+      </small>
     </div>
   );
 }
