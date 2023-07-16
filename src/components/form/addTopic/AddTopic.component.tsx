@@ -32,10 +32,9 @@ export function AddTopic({
   }, [open]);
   return (
     <>
-      <button onClick={() => setOpen(true)} data-testid="add-topic">
+      <BlogButton onClick={() => setOpen(true)} testid="add-topic">
         Add Topic
-      </button>
-      {/* <BlogButton onClick={() => setOpen(true)}>Add Topic</BlogButton> */}
+      </BlogButton>
       <WriteModal open={open} setOpen={setOpen}>
         <h3 className="text-lg font-medium leading-6 text-gray-900 mb-3">
           Add Topic to{" "}
