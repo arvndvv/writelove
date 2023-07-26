@@ -19,7 +19,6 @@ export default function EditorOverlay({
       document.body.style.overflowY = "auto";
       document.body.style.overflowX = "hidden";
     }
-    console.log("state", state);
   }, [openEditor, state]);
 
   const handleGenerate = () => {

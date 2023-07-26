@@ -55,7 +55,6 @@ export const WriteTable: (props: {
         setOpenEditor={setOpenEditor}
         topic={selectedTopic}
         onClose={() => {
-          console.log("hi");
           setSelectedTopic(null);
         }}
       />
