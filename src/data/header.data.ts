@@ -4,7 +4,7 @@ import { IHeaderLinks } from "../models/interfaces";
 export const signedInLinks: IHeaderLinks[] = [
     {
         name: "Home",
-        path: WriteRoutes.HOME,
+        path: WriteRoutes.BASE,
     },
     {
         name: "Recommendations",

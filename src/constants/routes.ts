@@ -1,5 +1,5 @@
 export enum WriteRoutes {
-    HOME = '/',
+    BASE = '/',
     RECOMMENDATIONS = '/recommendations',
     SIGN_IN = '/signin',
     READ = '/read',

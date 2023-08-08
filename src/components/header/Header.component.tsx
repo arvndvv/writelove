@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.styles.scss";
 import { HeaderLinks } from "./headerLinks/headerLinks";
 import { useGlobalState } from "../../global/store";
@@ -29,7 +29,6 @@ export const Header = () => {
         <HeaderLinks setMenuOpen={handleHamClick} menuOpen={menuOpen} />
         {user && <HeaderProfile />}
       </div>
-      <Outlet />
     </>
   );
 };

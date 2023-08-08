@@ -1,16 +1,14 @@
-import React from "react";
-import { useGlobalState } from "../global/store";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { WriteRoutes } from "../constants/routes";
+import { useGlobalState } from "../global/store";
 
-const AuthGuard = () => {
+const UnAuthGuard = () => {
   const { user } = useGlobalState();
   const location = useLocation();
   return user ? (
-    <Outlet />
+    <Navigate to={WriteRoutes.BASE} state={{ from: location }} replace />
   ) : (
-    <Navigate to={WriteRoutes.SIGN_IN} state={{ from: location }} replace />
+    <Outlet />
   );
 };
-
-export default AuthGuard;
+export default UnAuthGuard;
